@@ -3,9 +3,41 @@
 
     </HEAD>
     <body>
-        HALLO
+        ok
      <script>
-       
+    var zoekGetal, teller;
+    var getallen = new Array(10);
+
+    // deze for loop hier onder geeft elke plek in de array een willekeurig nummer tussen 0 en 100
+    for (teller = 0; teller <= 9; teller++) {
+        getallen[teller] = Math.floor(Math.random() * 100);
+    }
+    window.alert("Welk getal wil je zoeken: ");
+
+    // hier input je het getal dat je wilt zoeken
+    zoekGetal = Number(window.prompt('Enter a value for zoekGetal'));
+
+    // deze assign zet het array to de eerste plek voor de while loop
+    teller = 0;
+
+    // deze while loop chekt of het getal dat je zoekt op een plek staat en als dat getal niet op die plek staat gaat de while loop door naar het volgende getal totdat het gatal gevonden is of als de array afgelopen is
+    while (getallen[teller] != zoekGetal && teller < 9) {
+        teller = teller + 1;
+    }
+
+    // deze if statement kijkt of het getal dat je zocht gevonden is, zo ja dat geeft hij aan op welke plaats het gezochte getal gevonden is en zo nee dat wordt je doorgestuurdt naar nog een if statement
+    if (teller == 9) {
+
+        // deze if statement is er om te kijken of een getal op plek 9 is gevonden of gewoon niet is gevonden want de if statement hiervoor stuurt je door naar deze if statement als het array plek 9 heeft gevonden makt niet uit of het gevonden getal op plek negen staat of als het getal niet gevonden is.
+        if (zoekGetal == getallen[teller]) {
+            window.alert(zoekGetal.ToString() + " staat op plek " + teller);
+        } else {
+            window.alert("Getal niet gevonden.");
+        }
+    } else {
+        window.alert(zoekGetal.ToString() + " staat op plek " + teller);
+    }
+
      </script>
     </body>
 </html>
