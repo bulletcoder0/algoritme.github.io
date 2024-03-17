@@ -1,1 +1,83 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <script>
+    var teller;
+    var aantal;
+    var a;
+    var b;
+    var tijdelijk;
+    var controleur;
+    var ronde;
+    var groot;
 
+    window.alert("hoeveel getallen wil je sorteren?");
+
+    // hier vul je in hoeveel gettalen je gesoorteerd wilt
+    aantal = Number(window.prompt('Enter a value for aantal'));
+    var getallen = new Array(aantal);
+
+    // deze loop geeft elke waarde in de gettalen array een random getal tussen 0 en 99
+    for (teller = 0; teller <= aantal - 1; teller++) {
+        getallen[teller] = Math.floor(Math.random() * 100);
+    }
+    controleur = 0;
+    ronde = 0;
+    window.alert("Als je wilt dat de gettalen rij van klein naar groot wordt gesorteerd typ dan klein. Als je wilt dat de gettalen rij van groot naar klein wordt gesorteerd typ dan groot.");
+    groot = window.prompt('Enter a value for groot');
+    if (groot == "klein") {
+
+        // dit is een bubble sort loop waarin de gettalen rij wordt gesoorteerd
+        while (controleur < teller - 1) {
+            teller = 0;
+            for (teller = 0; teller <= aantal - 2 - ronde; teller++) {
+                a = getallen[teller];
+                b = getallen[teller + 1];
+                if (a > b) {
+                    tijdelijk = b;
+                    b = a;
+                    a = tijdelijk;
+                    getallen[teller] = a;
+                    getallen[teller + 1] = b;
+                    controleur = 0;
+                } else {
+                    controleur = controleur + 1;
+                }
+            }
+            ronde = ronde + 1;
+        }
+    } else {
+        if (groot == "groot") {
+
+            // dit is een bubble sort loop waarin de gettalen rij wordt gesoorteerd
+            while (controleur < teller - 1) {
+                teller = 0;
+                for (teller = 0; teller <= aantal - 2 - ronde; teller++) {
+                    a = getallen[teller];
+                    b = getallen[teller + 1];
+                    if (a < b) {
+                        tijdelijk = b;
+                        b = a;
+                        a = tijdelijk;
+                        getallen[teller] = a;
+                        getallen[teller + 1] = b;
+                        controleur = 0;
+                    } else {
+                        controleur = controleur + 1;
+                    }
+                }
+                ronde = ronde + 1;
+            }
+        } else {
+            window.alert("Dat is niet een optie probeer het opnieuw.");
+            main();
+        }
+    }
+    window.alert("De getallen rij is gesorteerd het duurde " + ronde + " keer voordat de gettalenrij voledig gesoorteerd was.");
+}
+
+    </script>
+  </body>
+</html>
